@@ -11,9 +11,7 @@ name: Java Continue Integration and Continue Development
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+    
 jobs:
   build:
 
@@ -35,3 +33,23 @@ jobs:
       run: mvn test
 
 
+  docker:
+    name: Publish - Docker Hub
+    runs-on: ubuntu-latest
+
+    env:
+      REPO: ${{ secrets.DOCKER_REPO }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: ''
+      - name: Login to Docker Hub
+        run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASS }}
+      - name: Build Docker image
+        run: docker build -t $REPO:latest -t $REPO:${GITHUB_SHA::8} .
+      - name: Publish Docker image
+        run: docker push $REPO
