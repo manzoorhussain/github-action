@@ -1,8 +1,8 @@
 name: Java Continuous Integration and Continuous Development
 
 on:
-  push:
-    branches: [ "main" ]
+  #push:
+    #branches: [ "main" ]
 
 jobs:
   Build:
