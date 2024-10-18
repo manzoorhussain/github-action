@@ -25,7 +25,7 @@ class GithubCationApplicationTests {
 	public void helloWorldTestCase() {
 
 		String returnValue = demoController.helloWord();
-		assertEquals("ABC", returnValue);
+		assertEquals("<h1>Hello World</h1>", returnValue);
 	}
 
 }
