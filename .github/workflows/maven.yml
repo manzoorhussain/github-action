@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  CheckOut:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,9 +22,9 @@ jobs:
       - name: Build and Install Dependencies with Maven
         run: mvn clean install
 
-  test:
+  TesCase:
     runs-on: ubuntu-latest
-    needs: build  # Ensures the 'test' job runs only after 'build' job completes
+    needs: CheckOut  # Ensures the 'test' job runs only after 'CheckOut' job completes
 
     steps:
       - name: Checkout Source Code for Testing
@@ -42,7 +42,7 @@ jobs:
 
   docker:
     runs-on: ubuntu-latest
-    needs: test  # Ensures 'docker' job runs only after 'test' job completes
+    needs: TesCase  # Ensures 'docker' job runs only after 'TesCase' job completes
 
     steps:
       - name: Checkout Source Code for Docker Build
