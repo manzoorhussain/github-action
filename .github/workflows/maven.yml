@@ -60,7 +60,7 @@ jobs:
         id: build-docker-image
         run: |
           ls -la 
-          docker build . -f Dockerfile -t manzoor2930/github-cation-0.0.1-SNAPSHORT:latest
+          docker build . -f Dockerfile -t manzoor2930/manzoor2930/github-action:latest
       - name: push the docker image
         id: push-docker-image
-        run: docker push ${{secrets.DOCKERHUB_USERNAME}}/github-cation-0.0.1-SNAPSHORT:latest
+        run: docker push ${{secrets.DOCKERHUB_USERNAME}}/manzoor2930/github-action:latest
