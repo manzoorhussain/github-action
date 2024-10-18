@@ -6,6 +6,7 @@ on:
 
 jobs:
   CheckOut:
+    name: Checkout Source Code
     runs-on: ubuntu-latest
 
     steps:
@@ -23,6 +24,7 @@ jobs:
         run: mvn clean install
 
   TesCase:
+    name: Checkout Source Code for Testing
     runs-on: ubuntu-latest
     needs: CheckOut  # Ensures the 'test' job runs only after 'CheckOut' job completes
 
@@ -41,6 +43,7 @@ jobs:
         run: mvn test
 
   DockerBuild:
+    name: Checkout Source Code for Docker Build
     runs-on: ubuntu-latest
     needs: TesCase  # Ensures 'docker' job runs only after 'TesCase' job completes
 
