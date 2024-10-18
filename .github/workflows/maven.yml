@@ -27,11 +27,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
+    - name: Install Maven
       run: mvn clean install
 
 
-    - name: Run Test Case
+    - name: Execute All Test Case
       run: mvn test
 
 
