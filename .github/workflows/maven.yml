@@ -30,3 +30,8 @@ jobs:
     - name: Build with Maven
       run: mvn clean install
 
+
+    - name: Run Test Case
+      run: mvn test
+
+
