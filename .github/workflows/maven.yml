@@ -32,6 +32,6 @@ jobs:
 
 
     - name: Execute All Test Case
-      run: mvn1 test
+      run: mvn test
 
 
