@@ -60,7 +60,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: manzoor2930/github-cation:1.0
+          tags: manzoor2930/github-cation:1.1
 
 
 
