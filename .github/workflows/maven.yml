@@ -42,9 +42,6 @@ jobs:
       - name: Run Unit Tests with Maven
         run: mvn test
 
-
-
-
   BuildAndPush:
     name : Build and Push
     runs-on: ubuntu-latest
