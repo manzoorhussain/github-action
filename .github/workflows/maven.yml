@@ -38,7 +38,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: SonarQube Scan
+      - name: SonarQube Scans
         run: mvn sonar:sonar -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} 
                               -Dsonar.login=${{ secrets.SONAR_TOKEN }}
                               -Dsonar.organization="manzoorhussain"
