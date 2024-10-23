@@ -29,17 +29,16 @@ jobs:
     needs: CheckOut  # Ensures the 'SonarQubeIntegration' job runs only after 'CheckOut' job completes
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checking out
+        uses: actions/checkout@master
         with:
           # Disabling shallow clone is recommended for improving relevancy of reporting
           fetch-depth: 0
       - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@master
-        env:
-          SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
-          SONAR_HOST_URL: ${{secrets.SONAR_HOST_URL}}
-          SONAR_PROJECT_KEY: ${{secrets.SONAR_PROJECT_KEY}}
-          SONAR_ORGANIZATION: ${{secrets.SONAR_ORGANIZATION}}
+        uses: kitabisa/sonarqube-action@v1.2.0
+        with:
+          host: ${{ secrets.SONAR_TOKEN }}
+          login: ${{ secrets.SONAR_TOKEN }}
 
 
   TestCase:
@@ -63,7 +62,7 @@ jobs:
 
 
   BuildAndPush:
-    name : Build and Push
+    name: Build and Push
     runs-on: ubuntu-latest
     needs: TestCase
     steps:
