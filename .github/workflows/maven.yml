@@ -36,9 +36,10 @@ jobs:
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
         env:
-          SONAR_TOKEN: 'fbf6d73b5293c7ec53169a9b4f3e2703a11eaeee'
-          SONAR_HOST_URL: 'https://sonarcloud.io/'
-
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: https://sonarcloud.io
+          SONAR_PROJECT_KEY: manzoorhussain_github-action
+          SONAR_ORGANIZATION: manzoorhussain
 
 
   TestCase:
