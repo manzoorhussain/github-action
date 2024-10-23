@@ -29,6 +29,12 @@ jobs:
     needs: CheckOut  # Ensures the 'SonarQubeIntegration' job runs only after 'CheckOut' job completes
 
     steps:
+      - name: Set up JDK 17 Environment
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
       - name: Checking out
         uses: actions/checkout@master
         with:
