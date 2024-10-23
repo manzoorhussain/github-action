@@ -39,7 +39,11 @@ jobs:
           distribution: 'temurin'
 
       - name: SonarQube Scan
-        run: mvn sonar:sonar -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        run: mvn sonar:sonar -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} 
+                              -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+                              -Dsonar.organization="manzoorhussain"
+                              -Dsonar.projectKey="manzoorhussain_github-action"
+                              -Dsonar.projectName="github-action"
         env:
           MAVEN_OPTS: "-Xmx1024m"  # Optional: Set heap size for Maven if needed
 
