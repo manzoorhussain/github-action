@@ -43,7 +43,7 @@ jobs:
   TestCase:
     name: Running Test Case
     runs-on: ubuntu-latest
-    needs: CheckOut  # Ensures the 'test' job runs only after 'CheckOut' job completes
+    needs: SonarQubeIntegration  # Ensures the 'test' job runs only after 'CheckOut' job completes
 
     steps:
       - name: Checkout Source Code for Testing
