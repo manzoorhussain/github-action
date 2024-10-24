@@ -20,6 +20,10 @@ public class DemoController {
             sb.append("<h1>Hello World</h1>");
         }
 
+        String exampleString = null;
+
+        // This will throw a NullPointerException
+        System.out.println("Length of the string: " + exampleString.length());
         return sb.toString();
 
     }
