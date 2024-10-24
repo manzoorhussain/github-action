@@ -14,13 +14,13 @@ public class DemoController {
 
     @GetMapping("/hello2")
     public String secondWord() {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
 
         if (sb != null) {
             sb.append("<h1>Hello World</h1>");
         }
 
-        String exampleString = null;
+        String exampleString = "NotNull";
 
         // This will throw a NullPointerException
         System.out.println("Length of the string: " + exampleString.length());
